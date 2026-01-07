@@ -27,7 +27,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             return true;
         }
         catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw new aaException(e.getMessage(), getClass().getName(), "create");
         }
     }   
 
@@ -60,7 +60,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                 lst.add(s);
             }
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw new aaException(e.getMessage(), getClass().getName(), "create");
         }
         return lst;
     }
@@ -80,7 +80,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw new aaException(e.getMessage(), getClass().getName(), "create");
         }
     }
 
@@ -95,7 +95,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw new aaException(e.getMessage(), getClass().getName(), "create");
         }
     }
 
@@ -129,7 +129,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                                         ,rs.getString(7)); // FechaModifica
             }
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw new aaException(e.getMessage(), getClass().getName(), "create");
         }
         return s;
     }

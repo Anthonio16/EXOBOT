@@ -5,12 +5,12 @@ import aaDataAccess.aaPersonaTipoDAO;
 import java.util.List;
 
 
-public class PersonaTipoBL {
+public class aaPersonaTipoBL {
 
     private aaPersonaTipoDTO personaTipo;
     private aaPersonaTipoDAO personaTipoDAO = new aaPersonaTipoDAO();
     
-    public PersonaTipoBL() {}
+    public aaPersonaTipoBL() {}
 
     public List<aaPersonaTipoDTO> getAll() throws Exception {
         return personaTipoDAO.readAll();

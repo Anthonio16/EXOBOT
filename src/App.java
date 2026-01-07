@@ -1,7 +1,9 @@
 import aaBusinessLogic.aaEstadoCivilBL;
+import aaBusinessLogic.aaPersonaTipoBL;
 import aaBusinessLogic.aaSexoBL;
 import aaDataAccess.aaDTO.SexoDTO2;
 import aaDataAccess.aaDTO.aaEstadoCivilDTO;
+import aaDataAccess.aaDTO.aaPersonaTipoDTO;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -30,7 +32,29 @@ public class App {
     }*/
 
  // testing: BL
-    try {
+        try {
+
+         int a[] = {10, 0}, b = 10;
+
+            try {
+                int resultadoA = a[1] / b;
+                int resultadoB = b / a[0];
+                new Exception("Te quiero fregar la vida"); // Nota: Esto instancia la excepción pero no la lanza (falta el 'throw')
+            } 
+            catch (ArithmeticException e) {
+                System.out.println("El denominado no deber cero"); // + e.getMessage());
+            } 
+            catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Esta fuera de rango"); // + e.getMessage());
+            } 
+            catch (Exception e) {
+                System.out.println("Ups... lo siento ocurrio un error" + e.getMessage());
+            } 
+            finally {
+            b = 10;
+            //System.out.println("finally : Ejecucion con o sin error");
+            }   
+
         aaSexoBL sBL = new aaSexoBL();
         //sBL.add(new SexoDTO2(0, 0, "nuevo sexo", "prueba", null, null, null));
         for (SexoDTO2 s : sBL.getAll()) {
@@ -46,6 +70,10 @@ public class App {
 
         System.out.println("---------------------");
 
+        aaPersonaTipoBL pBL = new aaPersonaTipoBL();
+        for (aaPersonaTipoDTO reg : pBL.getAll()) {
+            System.out.println(reg.toString());
+        }
 
     } catch (Exception e) {
         System.out.println(e.toString());
