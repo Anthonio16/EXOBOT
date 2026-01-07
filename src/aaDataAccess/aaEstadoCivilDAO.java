@@ -1,7 +1,6 @@
 package aaDataAccess;
 
-import aaDataAccess.aaDTO.SexoDTO2;
-import aaFramework.aaException;
+import aaDataAccess.aaDTO.aaEstadoCivilDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,29 +10,30 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
+
+public class aaEstadoCivilDAO extends aaSQLiteDataHelper implements aaIDAO<aaEstadoCivilDTO> {
 
     @Override
-    public boolean create(SexoDTO2 entity) throws Exception {
-        //2,             'Masculino',     'tipos de sexualida'
+    public boolean create(aaEstadoCivilDTO entity) throws Exception {
+        //3,             'Soltero',     'tipos de estado civil EC'
         String query = "INSERT INTO Catalogo (IdCatalogoTipo, Nombre, Descripcion) VALUES (?,?,?)";
         try {
             Connection        conn  = openConnection();
             PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, 2);
+            pstmt.setInt(1, 3);
             pstmt.setString(2, entity.getNombre());
             pstmt.setString(3, entity.getDescripcion());
             pstmt.executeUpdate();
             return true;
         }
         catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw e; // new PatException(e.getMessage(), getClass().getName(), "create");
         }
-    }   
+    }
 
     @Override
-    public List<SexoDTO2> readAll() throws Exception {
-        List<SexoDTO2> lst = new ArrayList<>();
+    public List<aaEstadoCivilDTO> readAll() throws Exception {
+        List<aaEstadoCivilDTO> lst = new ArrayList<>();
         String query = "SELECT IdCatalogo "
                     + ",IdCatalogoTipo "
                     + ",Nombre "
@@ -43,14 +43,14 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                     + ",FechaModifica "
                     + "FROM Catalogo "
                     + "WHERE Estado ='A' "
-                    + "AND IdCatalogoTipo = 2"; // tipos de sexualidad
+                    + "AND IdCatalogoTipo = 3";
 
         try {
             Connection conn = openConnection(); // conectar a DB
             Statement stmt = conn.createStatement(); // CRUD : select * ...
             ResultSet rs = stmt.executeQuery(query); // ejecutar la
             while (rs.next()) {
-                SexoDTO2 s = new SexoDTO2(rs.getInt(1) // IdCatalogo
+                aaEstadoCivilDTO s = new aaEstadoCivilDTO(rs.getInt(1) // IdCatalogo
                                         ,rs.getInt(2) // IdCatalogoTipo
                                         ,rs.getString(3) // Nombre
                                         ,rs.getString(4) // Descripcion
@@ -60,13 +60,13 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                 lst.add(s);
             }
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw e; // new PatException(e.getMessage(), getClass().getName(), "readALL()");
         }
         return lst;
     }
 
     @Override
-    public boolean update(SexoDTO2 entity) throws Exception {
+    public boolean update(aaEstadoCivilDTO entity) throws Exception {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
         String query = "UPDATE Catalogo SET Nombre = ?, Descripcion = ?, FechaModifica = ? WHERE IdCatalogo = ?";
@@ -80,7 +80,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw e; // new PatException(e.getMessage(), getClass().getName(), "update()");
         }
     }
 
@@ -95,13 +95,13 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw e; //new PatException(e.getMessage(), getClass().getName(), "delete()");
         }
     }
-
+    
     @Override
-    public SexoDTO2 readBy(Integer id) throws Exception {
-        SexoDTO2 s = new SexoDTO2();
+    public aaEstadoCivilDTO readBy(Integer id) throws Exception {
+        aaEstadoCivilDTO s = new aaEstadoCivilDTO();
         String query = "SELECT IdCatalogo "
                     + ",IdCatalogoTipo "
                     + ",Nombre "
@@ -111,7 +111,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                     + ",FechaModifica "
                     + "FROM Catalogo "
                     + "WHERE Estado ='A' "
-                    + "AND IdCatalogoTipo = 2 "
+                    + "AND IdCatalogoTipo = 3 "
                     + "AND IdCatalogo = " + id.toString(); // tipos de sexualidad
 
         try {
@@ -120,7 +120,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                s = new SexoDTO2(rs.getInt(1) // IdCatalogo
+                s = new aaEstadoCivilDTO(rs.getInt(1) // IdCatalogo
                                         ,rs.getInt(2) // IdCatalogoTipo
                                         ,rs.getString(3) // Nombre
                                         ,rs.getString(4) // Descripcion
@@ -129,7 +129,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
                                         ,rs.getString(7)); // FechaModifica
             }
         } catch (SQLException e) {
-            throw e; //new AEException(e.getMessage(), getClass().getName(), "create");
+            throw e; // new PatException(e.getMessage(), getClass().getName(), "readById()");
         }
         return s;
     }
@@ -138,7 +138,7 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
         String query = " SELECT COUNT(*) TotalReg"
                      + " FROM Catalogo "
                      + " WHERE Estado = 'A'"
-                     + " AND IdCatalogoTipo = 2"; // tipos de sexualidad
+                     + " AND IdCatalogoTipo = 3"; // tipos de estado civil
         try {
             Connection conn = openConnection(); // conectar a DB
             Statement stmt = conn.createStatement(); // CRUD : select * ...
@@ -148,8 +148,12 @@ public class SexoDAO extends aaSQLiteDataHelper implements aaIDAO<SexoDTO2> {
             }
         }
         catch (SQLException e) {
-            throw new aaException(e.getMessage(), getClass().getName(), "getRowCount()");
+            throw e; //new PatException(e.getMessage(), getClass().getName(), "getMaxRow()");
         }
         return 0;
     }
+
+
+
+    
 }

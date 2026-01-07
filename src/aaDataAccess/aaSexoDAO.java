@@ -110,7 +110,7 @@ public class aaSexoDAO extends aaSQLiteDataHelper implements aaIDAO<aaSexoDTO> {
     }
 
     @Override
-    public boolean delete(Integer id) throws Exception {
+    public boolean delete(int id) throws Exception {
         String query = " UPDATE SEXO SET Estado = ? WHERE IdSexo = ?";
         try {
             Connection conn = openConnection();
