@@ -1,13 +1,14 @@
-import aaBusinessLogic.aaEstadoCivilBL;
-import aaBusinessLogic.aaPersonaTipoBL;
-import aaBusinessLogic.aaSexoBL;
-import aaDataAccess.aaDTO.SexoDTO2;
-import aaDataAccess.aaDTO.aaEstadoCivilDTO;
-import aaDataAccess.aaDTO.aaPersonaTipoDTO;
+import aaUserinterface.aaForms.aaMainForm;
+import aaUserinterface.aaForms.aaSplashScreenForm;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
+
+        aaSplashScreenForm.show();
+        aaMainForm fromMain = new aaMainForm("IABOT - Sistema de Gestión");
+
+    // testing: DAO
     /*try {
         SexoDAO sDAO = new SexoDAO();
         for (SexoDTO2 s : sDAO.readAll()) {
@@ -32,7 +33,7 @@ public class App {
     }*/
 
  // testing: BL
-        try {
+       /* try {
 
          int a[] = {10, 0}, b = 10;
 
@@ -79,5 +80,6 @@ public class App {
         System.out.println(e.toString());
         }
     
+    }*/
     }
-    }
+}       
