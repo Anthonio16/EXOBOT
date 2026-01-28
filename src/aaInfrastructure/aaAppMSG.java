@@ -1,4 +1,4 @@
-package aaInfrastructure.Tools;
+package aaInfrastructure;
 
 import javax.swing.JOptionPane;
 

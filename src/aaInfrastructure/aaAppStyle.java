@@ -1,4 +1,4 @@
-package aaInfrastructure.Tools;
+package aaInfrastructure;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -10,7 +10,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-public abstract class IAStyle {
+public abstract class aaAppStyle {
     
     // Colores
     public static final Color COLOR_FONT       = new Color(200, 100, 50); // (218, 8, 40) original comentado
@@ -34,11 +34,11 @@ public abstract class IAStyle {
     public static final Cursor CURSOR_DEFAULT = new Cursor(Cursor.DEFAULT_CURSOR);
 
     // URLs de Imágenes
-    public static final URL URL_MAIN   = IAStyle.class.getResource("/aaUserInterface/aaResourse/Img/IABot.png");
-    public static final URL URL_LOGO   = IAStyle.class.getResource("/aaUserInterface/aaResourse/Img/Logo.png");
+    public static final URL URL_MAIN   = aaAppStyle.class.getResource("/aaUserInterface/aaResourse/Img/IABot.png");
+    public static final URL URL_LOGO   = aaAppStyle.class.getResource("/aaUserInterface/aaResourse/Img/Logo.png");
 
     // CORREGIDO: De "Splah.png" a "Splash.png" para evitar error NullPointerException
-    public static final URL URL_SPLASH = IAStyle.class.getResource("/aaUserInterface/aaResourse/Img/Splash.png");
+    public static final URL URL_SPLASH = aaAppStyle.class.getResource("/aaUserInterface/aaResourse/Img/Splash.png");
     // Método para bordes
     public static final CompoundBorder createBorderRect(){
         return BorderFactory.createCompoundBorder(

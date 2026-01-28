@@ -1,6 +1,6 @@
 package aaApp.aaDesktopApp.aaForms;
 
-import aaInfrastructure.Tools.IAStyle;
+import aaInfrastructure.aaAppStyle;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -28,11 +28,11 @@ public class aaMenuPanel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS)); // Botones uno debajo del otro
         setPreferredSize(new Dimension(250, 100)); // Ancho del menú
         setBackground(Color.WHITE);
-        setBorder(IAStyle.createBorderRect());
+        setBorder(aaAppStyle.createBorderRect());
 
         // Agregar Logo o Imagen arriba
         try {
-            ImageIcon logo = new ImageIcon(IAStyle.URL_LOGO);
+            ImageIcon logo = new ImageIcon(aaAppStyle.URL_LOGO);
             // Redimensionar logo si es muy grande
             Image img = logo.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             JLabel lblLogo = new JLabel(new ImageIcon(img));
@@ -55,10 +55,10 @@ public class aaMenuPanel extends JPanel {
 
     private void addBtn(JButton btn) {
         // Estilo del botón usando tu clase IAStyle
-        btn.setFont(IAStyle.FONT_BOLD);
-        btn.setForeground(IAStyle.COLOR_FONT);
+        btn.setFont(aaAppStyle.FONT_BOLD);
+        btn.setForeground(aaAppStyle.COLOR_FONT);
         btn.setBackground(Color.WHITE);
-        btn.setCursor(IAStyle.CURSOR_HAND);
+        btn.setCursor(aaAppStyle.CURSOR_HAND);
         btn.setAlignmentX(CENTER_ALIGNMENT);
         btn.setMaximumSize(new Dimension(200, 40)); // Tamaño fijo para uniformidad
         btn.setFocusPainted(false);

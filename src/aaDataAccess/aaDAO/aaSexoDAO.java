@@ -1,6 +1,7 @@
 package aaDataAccess.aaDAO;
 
 import aaDataAccess.Helpers.aaSQLiteDataHelper;
+import aaDataAccess.Interfaces.aaIDAO;
 import aaDataAccess.aaDTO.aaSexoDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

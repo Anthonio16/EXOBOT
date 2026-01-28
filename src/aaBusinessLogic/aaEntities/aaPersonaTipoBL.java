@@ -1,4 +1,4 @@
-package aaBusinessLogic;
+package aaBusinessLogic.aaEntities;
 
 import aaDataAccess.aaDAO.aaPersonaTipoDAO;
 import aaDataAccess.aaDTO.aaPersonaTipoDTO;

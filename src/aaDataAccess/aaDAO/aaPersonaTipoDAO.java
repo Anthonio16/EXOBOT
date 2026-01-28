@@ -1,6 +1,7 @@
 package aaDataAccess.aaDAO;
 
 import aaDataAccess.Helpers.aaSQLiteDataHelper;
+import aaDataAccess.Interfaces.aaIDAO;
 import aaDataAccess.aaDTO.aaPersonaTipoDTO;
 import aaInfrastructure.aaException;
 import java.sql.Connection;

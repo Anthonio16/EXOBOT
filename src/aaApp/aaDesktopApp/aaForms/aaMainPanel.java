@@ -1,6 +1,6 @@
 package aaApp.aaDesktopApp.aaForms;
 
-import aaInfrastructure.Tools.IAStyle;
+import aaInfrastructure.aaAppStyle;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -19,13 +19,13 @@ public class aaMainPanel extends JPanel {
         
         try {
             // Cargar imagen de bienvenida
-            ImageIcon imgMain = new ImageIcon(IAStyle.URL_MAIN);
+            ImageIcon imgMain = new ImageIcon(aaAppStyle.URL_MAIN);
             JLabel lblImage = new JLabel(imgMain);
             lblImage.setHorizontalAlignment(JLabel.CENTER);
             add(lblImage, BorderLayout.CENTER);
         } catch (Exception e) {
             JLabel lblText = new JLabel("Bienvenido al Sistema");
-            lblText.setFont(IAStyle.FONT_BOLD);
+            lblText.setFont(aaAppStyle.FONT_BOLD);
             lblText.setHorizontalAlignment(JLabel.CENTER);
             add(lblText, BorderLayout.CENTER);
         }

@@ -1,7 +1,9 @@
 package aaDataAccess.aaDAO;
 
-import aaDataAccess.Helpers.aaSQLiteDataHelper;
+import aaDataAccess.Helpers.DataHelperSQLiteDAO;
+import aaDataAccess.Interfaces.aaIDAO;
 import aaDataAccess.aaDTO.aaEstadoCivilDTO;
+import aaInfrastructure.aaAppException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +14,42 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class aaEstadoCivilDAO extends aaSQLiteDataHelper implements aaIDAO<aaEstadoCivilDTO> {
+public class aaEstadoCivilDAO extends DataHelperSQLiteDAO<aaEstadoCivilDTO> {
+    public aaEstadoCivilDAO() throws aaAppException {
+        super(aaEstadoCivilDTO.class, "AlimentoTipo", "IdAlimentoTipo");
+    }
+      
+    public aaEstadoCivilDTO check (String nombre) throws aaAppException {
+        aaEstadoCivilDTO dto = new aaEstadoCivilDTO();
+        String query = " SELECT IdEstadoCivil"
+                      +"  ,Nombre         "   
+                      +"  ,Descripcion    "     
+                      +"  ,Estado       "
+                      +"  ,FechaCreacion"   
+                      +"  ,FechaModifica" 
+                      +"  FROM AlimentoTipo WHERE Nombre = '"+ nombre + "' ";
+        try {
+            Connection conn = openConnection();         // conectar a DB     
+            Statement  stmt = conn.createStatement();   // CRUD : select * ...    
+            ResultSet rs   = stmt.executeQuery(query);  // ejecutar la
+            while (rs.next()) {
+                dto = new aaEstadoCivilDTO(rs.getInt(1)          // IdAlimentoTipo
+                                        ,rs.getString(2)        // Nombre            
+                                        ,rs.getString(3)        // Descripcion             
+                                        ,rs.getString(4)        // Estado
+                                        ,rs.getString(5)        // FechaCreacion
+                                        ,rs.getString(6)        // FechaModifica
+                                        ,rs.getString( 7)
+                                      ); 
+            }
+            return dto;
+        } 
+        catch (SQLException e) {
+            throw new aaAppException("Ups... porblemas con la vista", e, getClass(), "getVWHormiga()");
+        }
+    }
+
+
 
     @Override
     public boolean create(aaEstadoCivilDTO entity) throws Exception {

@@ -1,6 +1,6 @@
 package aaApp.aaDesktopApp.aaForms;
 
-import aaInfrastructure.Tools.IAStyle;
+import aaInfrastructure.aaAppStyle;
 import java.awt.BorderLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -17,7 +17,7 @@ public abstract class aaSplashScreenForm {
 
     public static void show() {
         // Cargar imagen y recursos
-        icoImagen  = new ImageIcon(IAStyle.URL_SPLASH);
+        icoImagen  = new ImageIcon(aaAppStyle.URL_SPLASH);
         lblSplash  = new JLabel(icoImagen);
         prbLoading = new JProgressBar(0, 100);
 

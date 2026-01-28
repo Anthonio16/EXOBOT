@@ -1,6 +1,6 @@
 package aaApp.aaDesktopApp.aaForms;
 
-import aaInfrastructure.Tools.IAStyle;
+import aaInfrastructure.aaAppStyle;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -28,7 +28,7 @@ public class aaLoginPanel extends JPanel {
         
         // Título
         JLabel lblTitulo = new JLabel("INICIAR SESIÓN");
-        lblTitulo.setFont(IAStyle.FONT_BOLD);
+        lblTitulo.setFont(aaAppStyle.FONT_BOLD);
         gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2;
         add(lblTitulo, gbc);
 
@@ -44,7 +44,7 @@ public class aaLoginPanel extends JPanel {
 
         // Botón
         gbc.gridy = 3; gbc.gridx = 0; gbc.gridwidth = 2;
-        btnIngresar.setBackground(IAStyle.COLOR_FONT);
+        btnIngresar.setBackground(aaAppStyle.COLOR_FONT);
         btnIngresar.setForeground(Color.WHITE);
         add(btnIngresar, gbc);
     }

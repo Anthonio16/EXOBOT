@@ -1,4 +1,4 @@
-package aaBusinessLogic;
+package aaBusinessLogic.aaEntities;
 
 import aaDataAccess.aaDAO.SexoDAO;
 import aaDataAccess.aaDTO.SexoDTO2;

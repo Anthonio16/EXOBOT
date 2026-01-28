@@ -1,6 +1,6 @@
 package aaApp.aaDesktopApp.aaForms;
 
-import aaInfrastructure.Tools.IAStyle;
+import aaInfrastructure.aaAppStyle;
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,9 +15,9 @@ public class aaSexoPanel extends JPanel {
         setLayout(new BorderLayout());
         
         JLabel lblTitulo = new JLabel("Gestión de Tipos de Sexo");
-        lblTitulo.setFont(IAStyle.FONT_BOLD);
+        lblTitulo.setFont(aaAppStyle.FONT_BOLD);
         lblTitulo.setHorizontalAlignment(JLabel.CENTER);
-        lblTitulo.setBorder(IAStyle.createBorderRect());
+        lblTitulo.setBorder(aaAppStyle.createBorderRect());
         
         add(lblTitulo, BorderLayout.NORTH);
         
