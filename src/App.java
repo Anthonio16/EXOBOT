@@ -1,5 +1,5 @@
-import aaUserinterface.aaForms.aaMainForm;
-import aaUserinterface.aaForms.aaSplashScreenForm;
+import aaApp.aaDesktopApp.aaForms.aaMainForm;
+import aaApp.aaDesktopApp.aaForms.aaSplashScreenForm;
 
 public class App {
     public static void main(String[] args) throws Exception {

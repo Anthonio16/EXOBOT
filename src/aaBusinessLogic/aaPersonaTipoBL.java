@@ -1,7 +1,7 @@
 package aaBusinessLogic;
 
+import aaDataAccess.aaDAO.aaPersonaTipoDAO;
 import aaDataAccess.aaDTO.aaPersonaTipoDTO;
-import aaDataAccess.aaPersonaTipoDAO;
 import java.util.List;
 
 

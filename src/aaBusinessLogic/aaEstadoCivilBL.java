@@ -1,7 +1,7 @@
 package aaBusinessLogic;
 
+import aaDataAccess.aaDAO.aaEstadoCivilDAO;
 import aaDataAccess.aaDTO.aaEstadoCivilDTO;
-import aaDataAccess.aaEstadoCivilDAO;
 import java.util.List;
 
 

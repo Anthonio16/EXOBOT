@@ -1,6 +1,6 @@
 package aaBusinessLogic;
 
-import aaDataAccess.SexoDAO;
+import aaDataAccess.aaDAO.SexoDAO;
 import aaDataAccess.aaDTO.SexoDTO2;
 import java.util.List;
 
